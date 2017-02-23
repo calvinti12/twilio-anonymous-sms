@@ -50,7 +50,7 @@ if ($_REQUEST['From'] == $ownerCell) {
             $ownerCell, 
             array(
                 'from' => $twilioNumber,
-                'body' => "You are now in an SMS conversaton with $customerCell." . "\n" . "You no longer have to include their number in the body of your messages to communicate.",
+                'body' => "You are now in an SMS conversaton with $customerCell." . "\n" . "You no longer have to include their number in the body of your messages.",
         ));
     }
 
