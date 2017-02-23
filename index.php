@@ -13,10 +13,10 @@ $token = $_ENV['AUTH_TOKEN'];
 $client = new Client($sid, $token);
 
 // Set your personal mobile number here in E.164 format.
-$ownerCell = "+1XXXYYYZZZZ";
+$ownerCell = $_ENV['OWNER_CELL'];
 
 // Set your Twilio number here in E.164 format.
-$twilioNumber = "+1XXXYYYZZZZ";
+$twilioNumber = $_ENV['TWILIO_NUMBER'];
 
 // Send message to owner cell.
 if ($_REQUEST['From'] != $ownerCell) {
