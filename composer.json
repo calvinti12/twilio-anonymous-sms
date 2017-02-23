@@ -1,0 +1,10 @@
+{
+    "require": {
+        "twilio/sdk": "^5.5",
+        "monolog/monolog": "^1.22"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.8",
+        "heroku/heroku-buildpack-php": "*"
+    }
+}
