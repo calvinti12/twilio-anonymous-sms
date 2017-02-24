@@ -37,7 +37,7 @@ if ($_REQUEST['From'] != $ownerCell) {
 if ($_REQUEST['From'] == $ownerCell) {
     
     // Look for customer cell number and pull it out of message body.
-    $re = '/^\+?[1-9]\d{1,14}/';
+    $re = '/\+?[1-9]\d{1,14}/';
     preg_match_all($re, $_REQUEST['Body'], $phone);
     
     // If a number is found assign it to a variable.
