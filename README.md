@@ -7,7 +7,8 @@ This is a proof of concept for writing an anonymous SMS system for communication
 
 1. Have an active [Twilio](https://www.twilio.com/try-twilio) account and U.S. or Canada phone number capable of receiving SMS. _Not a trial account._
 2. Create a new Heroku app. This application was built using [Heroku](https://heroku.com), but you could adjusted the code to run in any environment. 
-3. After you've created your Heroku app, grab your Heroku app's URL and put that in your Twilio number's configuration under "A Message Comes In" and set it to HTTP POST.
+3. After you've created your Heroku app, grab your Heroku app's URL and put that in your Twilio number's configuration under "A Message Comes In" and set it to HTTP POST, like in the following example.
+![number_config](https://cloud.githubusercontent.com/assets/786896/23295248/633a34e0-fa24-11e6-9d55-eb1d517f0418.png)
 4. 
 
 >**Note:**
