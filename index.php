@@ -20,14 +20,20 @@ $twilioNumber = $_ENV['TWILIO_NUMBER'];
 
 // Send message to owner cell.
 if ($_REQUEST['From'] != $ownerCell) {
+    if ($_SESSION['customer'] != True) {
+        $_SESSION['customer'] = True;
+        $body = "From: " . $_REQUEST['From'] . "\n" . "Message: " . $_REQUEST['Body'] . "\n" .  "Instructions: Include the full number above in the body of your reply to start a conversation with this person.";
+    } else {
+        $body = "From: " . $_REQUEST['From'] . "\n" . $_REQUEST['Body'];
+    }
     $message = $client->messages->create(
         $ownerCell, array(
             'from' => $twilioNumber,
-            'body' => "From: " . $_REQUEST['From'] . "\n" . "Message: " . $_REQUEST['Body'] . "\n" .  "Instructions: Include the full number above in the body of your reply to start a conversation with this person.",
-        ));
+            'body' => $body,
+            ));
 }
 
-// Send message to customer cell.
+// Send message to customer cell.`
 if ($_REQUEST['From'] == $ownerCell) {
     
     // Look for customer cell number and pull it out of message body.
