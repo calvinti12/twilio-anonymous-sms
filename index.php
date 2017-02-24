@@ -30,7 +30,7 @@ if ($_REQUEST['From'] != $ownerCell) {
 // Send message to customer cell.
 if ($_REQUEST['From'] == $ownerCell) {
     
-    // Pull customer cell out of message body.
+    // Look for customer cell number and pull it out of message body.
     $re = '/^\+?[1-9]\d{1,14}/';
     preg_match_all($re, $_REQUEST['Body'], $phone);
     
@@ -66,10 +66,12 @@ if ($_REQUEST['From'] == $ownerCell) {
     // Remove phone number from body of first message back to customer.
     $body = str_replace($_SESSION['customerCell'], "", $_REQUEST['Body']);
     
-    // Send message to customer cell.
-    $message = $client->messages->create(
-        $_SESSION['customerCell'], array(
-            'from' => $twilioNumber,
-            'body' => $body,
+    // Send message to customer cell if session cokie is set.
+    if (isset($_SESSION['customerCell'])){
+        $message = $client->messages->create(
+            $_SESSION['customerCell'], array(
+                'from' => $twilioNumber,
+                'body' => $body,
         ));
+    }
 }
