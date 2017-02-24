@@ -20,8 +20,8 @@ $twilioNumber = $_ENV['TWILIO_NUMBER'];
 
 // Send message to owner cell.
 if ($_REQUEST['From'] != $ownerCell) {
-    if ($_SESSION['customer'] != True) {
-        $_SESSION['customer'] = True;
+    if (!($_SESSION['customer'])) {
+        $_SESSION['customer'] = 'go';
         $body = "From: " . $_REQUEST['From'] . "\n" . "Message: " . $_REQUEST['Body'] . "\n" .  "Instructions: Include the full number above in the body of your reply to start a conversation with this person.";
     } else {
         $body = "From: " . $_REQUEST['From'] . "\n" . $_REQUEST['Body'];
