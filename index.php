@@ -61,7 +61,7 @@ if ($_REQUEST['From'] == $ownerCell) {
     }
 
     // If cookie expired and no number is included in message body, send this message.
-    if (!isset($_SESSION['customerCell'])) {
+    if (!isset($_SESSION['customerCell']) && !isset($customerCell)) {
         $message = $client->messages->create(
         $ownerCell, array(
             'from' => $twilioNumber,
