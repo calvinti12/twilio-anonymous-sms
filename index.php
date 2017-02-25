@@ -1,5 +1,10 @@
 <?php
 
+$_REQUEST['Body'] = "whole bunch of +12223334444 text and a number.";
+$re = '/\+?[1-9]\d{1,14}/';
+preg_match($re, $_REQUEST['Body'], $phone);
+print_r($phone);
+die();
 // start the session.
 session_start();
 
