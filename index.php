@@ -1,10 +1,5 @@
 <?php
 
-$_REQUEST['Body'] = "whole bunch of +12223334444 text and a number.";
-$re = '/\+?[1-9]\d{1,14}/';
-preg_match($re, $_REQUEST['Body'], $phone);
-print_r($phone);
-die();
 // start the session.
 session_start();
 
@@ -25,7 +20,7 @@ $twilioNumber = $_ENV['TWILIO_NUMBER'];
 
 // Send message to owner cell.
 if ($_REQUEST['From'] != $ownerCell) {
-    if (!($_SESSION['customer'])) {
+    if (!isset($_SESSION['customer'])) {
         $_SESSION['customer'] = 'go';
         $body = "From: " . $_REQUEST['From'] . "\n" . "Message: " . $_REQUEST['Body'] . "\n" .  "Instructions: Include the full number above in the body of your reply to start a conversation with this person.";
     } else {
