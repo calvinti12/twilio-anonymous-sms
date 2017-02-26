@@ -9,10 +9,10 @@ This is a proof of concept for writing an anonymous SMS application that facilit
 3. After you've created your Heroku app, grab your Heroku app's URL and put that in your [Twilio number's configuration](https://www.twilio.com/console/phone-numbers/incoming) under "A Message Comes In" and set it to HTTP POST, like in the following example.
 ![number_config](https://cloud.githubusercontent.com/assets/786896/23295248/633a34e0-fa24-11e6-9d55-eb1d517f0418.png)
 4. This next step is optional depending on how you would like to handle config/environment variables. For this example I created four environment variables on my Heroku app, They are
-    * `ACCOUNT_SID`
-    * AUTH_TOKEN
-    * OWNER_CELL
-    * TWILIO_NUMBER
+    * `ACCOUNT_SID` - This shouls equal your Live Twilio Account SID.
+    * `AUTH_TOKEN` - This should equal your Live Twilio AuthToken.
+    * `OWNER_CELL` - This should equal the cell phone number of the business owner, or person trying to keep their phone number anonymous.
+    * `TWILIO_NUMBER` - This should equal your Twilio phone numbr you just configured with the Heroku URL.
 
 >**Note:**
 This application was only designed to work with U.S./Canada numbers.
