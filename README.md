@@ -13,6 +13,7 @@ This is a proof of concept for writing an anonymous SMS application that facilit
     * `AUTH_TOKEN` - This should equal your Live Twilio AuthToken.
     * `OWNER_CELL` - This should equal the cell phone number of the business owner, or person trying to keep their phone number anonymous.
     * `TWILIO_NUMBER` - This should equal your Twilio phone numbr you just configured with the Heroku URL.
+
 ![env-vars](https://cloud.githubusercontent.com/assets/786896/23337262/6d7cb328-fb9c-11e6-8d58-1b18a887727b.png)
 
 >**Note:**
