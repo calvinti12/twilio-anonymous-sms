@@ -20,17 +20,22 @@ $twilioNumber = $_ENV['TWILIO_NUMBER'];
 
 // Send message to owner cell.
 if ($_REQUEST['From'] != $ownerCell) {
+    
+    // If first contact by customer, set customer cookie.
     if (!isset($_SESSION['customer'])) {
         $_SESSION['customer'] = 'go';
         $body = "From: " . $_REQUEST['From'] . "\n" . "Message: " . $_REQUEST['Body'] . "\n" .  "Instructions: Include the full number above in the body of your reply to start a conversation with this person.";
     } else {
         $body = "From: " . $_REQUEST['From'] . "\n" . $_REQUEST['Body'];
     }
+    
+    // Send SMS from customer to owner.
     $message = $client->messages->create(
         $ownerCell, array(
             'from' => $twilioNumber,
             'body' => $body,
-            ));
+        )
+    );
 }
 
 // Send message to customer cell.`
@@ -57,16 +62,18 @@ if ($_REQUEST['From'] == $ownerCell) {
             array(
                 'from' => $twilioNumber,
                 'body' => "You are now in an SMS conversaton with $customerCell." . "\n" . "You no longer have to include their number in the body of your messages.",
-        ));
+            )
+        );
     }
 
     // If cookie expired and no number is included in message body, send this message.
     if (!isset($_SESSION['customerCell']) && !isset($customerCell)) {
         $message = $client->messages->create(
-        $ownerCell, array(
-            'from' => $twilioNumber,
-            'body' => "We do not know who to send your message to. Please specify a phone number in your message body using this format +1XXXYYYZZZZ.",
-        ));
+            $ownerCell, array(
+                'from' => $twilioNumber,
+                'body' => "I do not know who to send your message to. Please specify a phone number in your message body using this format +1XXXYYYZZZZ.",
+            )
+        );
     }
 
     // Remove phone number from body of first message back to customer.
