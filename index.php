@@ -26,7 +26,7 @@ if (!empty($_REQUEST['From']) && $_REQUEST['From'] != $ownerCell) {
     // If first contact by customer, set customer cookie.
     if (!isset($_SESSION['customer'])) {
         $_SESSION['customer'] = 'go';
-        $body = "From: " . $_REQUEST['From'] . "\n" . "Message: " . $_REQUEST['Body'] . "\n" .  "Instructions: Include the full number above in the body of your reply to start a conversation with this person.";
+        $body = "New Conversation With: " . $_REQUEST['From'] . "\n" . "Message: " . $_REQUEST['Body'] . "\n" .  "Instructions: Include the full number above in the body of your reply to start a conversation.";
     } else {
         $body = "From: " . $_REQUEST['From'] . "\n" . $_REQUEST['Body'];
     }
@@ -63,7 +63,7 @@ if ($_REQUEST['From'] == $ownerCell) {
             $ownerCell, 
             array(
                 'from' => $twilioNumber,
-                'body' => "You are now in an SMS conversaton with $customerCell." . "\n" . "You no longer have to include their number in the body of your messages.",
+                'body' => "You are now talking to $customerCell." . "\n" . "You no longer have to include their number in the body of your messages.",
             )
         );
     }
