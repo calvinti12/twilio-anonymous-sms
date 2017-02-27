@@ -21,7 +21,7 @@ $twilioNumber = $_ENV['TWILIO_NUMBER'];
 
 
 // Send message to owner cell.
-if (isset($_REQUEST['From']) && $_REQUEST['From'] != $ownerCell) {
+if (!empty($_REQUEST['From']) && $_REQUEST['From'] != $ownerCell) {
     
     // If first contact by customer, set customer cookie.
     if (!isset($_SESSION['customer'])) {
