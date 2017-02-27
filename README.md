@@ -17,4 +17,4 @@ This is a proof of concept for writing an anonymous SMS application that facilit
 ![env-vars](https://cloud.githubusercontent.com/assets/786896/23337262/6d7cb328-fb9c-11e6-8d58-1b18a887727b.png)
 
 >**Note:**
-This application was only designed to work with U.S./Canada numbers.
+This application was only designed to work with U.S./Canada numbers. With a little update to the regex you could get this working for other countries.
