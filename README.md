@@ -29,9 +29,8 @@ When a message is sent to your Twilio number, the message will be forwarded to t
 
 The first message to you will look like this:
 
->From: +15554441212\s
->Message: The message from your customer.
-
+>From: +15554441212  
+>Message: The message from your customer.  
 >Instructions: Include the full number above in the body of your reply to start a conversation with this person.
 
 When you reply to this message you are replying to your Twilio number, so you **MUST** include the customer's phone number in the body of your message like this:
