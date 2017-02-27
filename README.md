@@ -47,3 +47,7 @@ Whenever you send a message with a phone number in the body of the message, you 
 
 >You are now in an SMS conversaton with +15554441212.
 You no longer have to include their number in the body of your messages.
+
+If the Twilio cookie has expired and you send a message without phone number in the message body, you will be prompted by the appliction to provide a phone number like this:
+
+>I do not know who to send your message to. Please specify a phone number in your message body using this format +1XXXYYYZZZZ.
