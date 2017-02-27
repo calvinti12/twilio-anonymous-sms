@@ -18,8 +18,10 @@ $ownerCell = $_ENV['OWNER_CELL'];
 // Set your Twilio number here in E.164 format.
 $twilioNumber = $_ENV['TWILIO_NUMBER'];
 
+
+
 // Send message to owner cell.
-if ($_REQUEST['From'] != $ownerCell) {
+if (isset($_REQUEST['From']) && $_REQUEST['From'] != $ownerCell) {
     
     // If first contact by customer, set customer cookie.
     if (!isset($_SESSION['customer'])) {
